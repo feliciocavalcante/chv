@@ -1,4 +1,3 @@
-"use client"
 
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react"
 import { motion } from "framer-motion"

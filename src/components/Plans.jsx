@@ -1,9 +1,20 @@
-"use client"
 
 import { motion } from "framer-motion"
 import { CheckCircle } from "lucide-react"
 
 const plans = [
+  {
+    name: "Plano Grátis",
+    price: "3 Dias Grátis",
+    benefits: [
+      "Acesso a uma modalidade (escolha no local)",
+      "Avaliação física inicial simplificada",
+      "Experiência completa do ambiente CHV",
+      "Válido apenas para novos alunos",
+    ],
+    isPopular: false,
+    isFree: true, // Novo campo para identificar o plano grátis
+  },
   {
     name: "Plano Essencial",
     price: "R$ 199/mês",
@@ -14,6 +25,7 @@ const plans = [
       "Acesso à área de convivência",
     ],
     isPopular: false,
+    isFree: false,
   },
   {
     name: "Plano Premium",
@@ -26,6 +38,7 @@ const plans = [
       "Acesso à área de convivência",
     ],
     isPopular: true,
+    isFree: false,
   },
   {
     name: "Plano Elite",
@@ -39,6 +52,7 @@ const plans = [
       "Acesso à área de convivência",
     ],
     isPopular: false,
+    isFree: false,
   },
 ]
 
@@ -55,11 +69,17 @@ export default function Plans() {
         >
           Escolha Seu Plano
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`p-8 rounded-lg shadow-xl text-center ${plan.isPopular ? "bg-accent text-primary border-2 border-accent-dark" : "bg-secondary border border-tertiary"}`}
+              className={`p-8 rounded-lg shadow-xl text-center ${
+                plan.isPopular
+                  ? "bg-accent text-primary border-2 border-accent-dark"
+                  : plan.isFree
+                    ? "bg-secondary border border-accent" // Destaque sutil para o grátis
+                    : "bg-secondary border border-tertiary"
+              }`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -70,8 +90,17 @@ export default function Plans() {
                   <span className="bg-primary text-accent px-4 py-1 rounded-full text-sm font-bold">Mais Popular</span>
                 </div>
               )}
+              {plan.isFree && (
+                <div className="mb-4">
+                  <span className="bg-accent text-primary px-4 py-1 rounded-full text-sm font-bold">Experimente!</span>
+                </div>
+              )}
               <h3 className="text-3xl font-bold mb-4">{plan.name}</h3>
-              <p className={`text-4xl font-extrabold mb-6 ${plan.isPopular ? "text-primary" : "text-white"}`}>
+              <p
+                className={`text-4xl font-extrabold mb-6 ${
+                  plan.isPopular ? "text-primary" : plan.isFree ? "text-accent" : "text-white"
+                }`}
+              >
                 {plan.price}
               </p>
               <ul className="text-left mb-8 space-y-3">
@@ -83,14 +112,16 @@ export default function Plans() {
                 ))}
               </ul>
               <a
-                href="#"
+                href={plan.isFree ? "#contact" : "#"} // Link para o formulário de contato para o plano grátis
                 className={`inline-block w-full py-3 rounded-full font-bold text-lg transition-colors duration-300 ${
                   plan.isPopular
                     ? "bg-primary text-accent hover:bg-tertiary"
-                    : "bg-accent text-primary hover:bg-accent-dark"
+                    : plan.isFree
+                      ? "bg-accent text-primary hover:bg-accent-dark" // Botão para o plano grátis
+                      : "bg-accent text-primary hover:bg-accent-dark"
                 }`}
               >
-                Assinar Agora
+                {plan.isFree ? "Agendar Aula Grátis" : "Assinar Agora"}
               </a>
             </motion.div>
           ))}

@@ -1,36 +1,34 @@
-"use client"
 
 import { motion } from "framer-motion"
+import run from "../assets/run.png"
+import perfomace from "../assets/perfomace.png"
+import funcional from "../assets/funcional.png"
+import crosfite from "../assets/crosfite.png"
 
 const modalities = [
   {
     name: "Crossfit",
     description: "Treinamento funcional de alta intensidade para força e condicionamento.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: crosfite,
     isNew: false,
   },
   {
     name: "Performance",
     description: "Otimize seu desempenho atlético com treinos personalizados e avançados.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: perfomace,
     isNew: false,
   },
   {
     name: "Funcional",
     description: "Melhore sua mobilidade e força para as atividades do dia a dia.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: funcional,
     isNew: false,
   },
-  {
-    name: "Futevôlei",
-    description: "Aprimore suas habilidades na areia com aulas dinâmicas e divertidas.",
-    image: "/placeholder.svg?height=200&width=300",
-    isNew: false,
-  },
+  
   {
     name: "CHV Run",
     description: "Prepare-se para correr mais longe e mais rápido com nosso programa exclusivo.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: run,
     isNew: true,
   },
 ]
@@ -52,7 +50,7 @@ export default function Modalities() {
           {modalities.map((modality, index) => (
             <motion.div
               key={modality.name}
-              className={`flex-none w-64 sm:w-72 md:w-80 relative rounded-lg overflow-hidden shadow-lg group ${modality.isNew ? "border-2 border-accent" : "border border-tertiary"} bg-secondary`}
+              className={`flex-none w-64 sm:w-72 md:w-60 relative rounded-lg overflow-hidden shadow-lg group ${modality.isNew ? "border-2 border-accent" : "border border-tertiary"} bg-secondary`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}

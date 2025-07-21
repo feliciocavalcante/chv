@@ -1,6 +1,6 @@
-"use client"
 
 import { motion } from "framer-motion"
+import sobreCHV from "../assets/sobreCHV.png"
 
 export default function About() {
   return (
@@ -35,7 +35,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="/placeholder.svg?height=720&width=1280" // Imagem de placeholder
+              src={sobreCHV} // Imagem de placeholder
               alt="Interior do Complexo CHV"
               className="rounded-lg shadow-xl object-cover w-full h-auto" // Estilo da imagem
             />

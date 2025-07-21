@@ -1,9 +1,8 @@
-"use client"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react" // Importe os ícones do Lucide React
-
+import chvv from "../assets/chvv.png"
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -30,14 +29,7 @@ export default function Header() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <motion.img
-          src="/placeholder.svg?height=50&width=150"
-          alt="Complexo CHV Logo"
-          className="h-12 object-contain"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        />
+       <img src={chvv} alt="" className="w-18 h-16" />
 
         {/* Menu para Desktop */}
         <nav className="hidden md:flex space-x-8">
