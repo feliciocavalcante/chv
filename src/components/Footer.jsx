@@ -9,9 +9,9 @@ export default function Footer() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      transition={{ duration: 0.8 }}>
+
+      <div className="container bg-[#1c1c1c] mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {/* Contato */}
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Contato</h3>
@@ -96,8 +96,7 @@ export default function Footer() {
             </div>
             <button
               type="submit"
-              className="w-full bg-accent text-primary font-bold py-3 rounded-md hover:bg-accent-dark transition-colors duration-300"
-            >
+              className="w-full bg-accent text-primary font-bold py-3 rounded-md  hover:bg-accent-dark transition-colors duration-300">
               Agendar Aula
             </button>
           </form>

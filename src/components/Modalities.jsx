@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion"
 import run from "../assets/run.png"
 import perfomace from "../assets/perfomace.png"
@@ -24,7 +23,6 @@ const modalities = [
     image: funcional,
     isNew: false,
   },
-  
   {
     name: "CHV Run",
     description: "Prepare-se para correr mais longe e mais rápido com nosso programa exclusivo.",
@@ -35,10 +33,10 @@ const modalities = [
 
 export default function Modalities() {
   return (
-    <section id="modalities" className="py-16 md:py-24 bg-primary">
+    <section id="modalities" className="py-12 md:py-24 bg-primary">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center mb-12"
+          className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -46,11 +44,12 @@ export default function Modalities() {
         >
           Nossas Modalidades
         </motion.h2>
-        <div className="flex overflow-x-auto pb-4 space-x-6 md:space-x-8 lg:justify-center lg:overflow-x-hidden">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {modalities.map((modality, index) => (
             <motion.div
               key={modality.name}
-              className={`flex-none w-64 sm:w-72 md:w-60 relative rounded-lg overflow-hidden shadow-lg group ${modality.isNew ? "border-2 border-accent" : "border border-tertiary"} bg-secondary`}
+              className={`relative rounded-lg overflow-hidden shadow-lg group ${modality.isNew ? "border-2 border-accent" : "border border-tertiary"} bg-secondary transition-transform duration-300`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -62,7 +61,7 @@ export default function Modalities() {
                 className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className={`p-4 ${modality.isNew ? "bg-accent text-primary" : "bg-secondary"}`}>
-                <h3 className="text-xl font-bold mb-1">{modality.name}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-1">{modality.name}</h3>
                 <p className={`text-sm ${modality.isNew ? "text-primary-700" : "text-white-50"}`}>
                   {modality.description}
                 </p>

@@ -29,7 +29,7 @@ export default function Header() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-       <img src={chvv} alt="" className="w-18 h-16" />
+       <img src={chvv} alt="" className="w-22 h-16" />
 
         {/* Menu para Desktop */}
         <nav className="hidden md:flex space-x-8">

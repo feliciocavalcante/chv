@@ -61,7 +61,7 @@ export default function Plans() {
     <section id="plans" className="py-16 md:py-24 bg-primary">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center mb-12"
+          className="text-3xl md:text-5xl font-bold text-center mb-12 cursor-pointer"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
