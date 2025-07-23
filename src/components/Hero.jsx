@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import Header from "./Header"
 import chv1 from "../assets/chv1.png"
 import chvv from "../assets/chvv.png"
-import ddd from "../assets/ddd.png"
 
 export default function Hero() {
   return (
