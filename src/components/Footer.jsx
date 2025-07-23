@@ -1,6 +1,10 @@
 
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -18,7 +22,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li className="flex items-center">
               <Phone className="w-5 h-5 mr-3 text-accent" />
-              (XX) XXXX-XXXX
+              (85) 99715-6111
             </li>
             <li className="flex items-center">
               <Mail className="w-5 h-5 mr-3 text-accent" />
@@ -26,7 +30,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start">
               <MapPin className="w-5 h-5 mr-3 text-accent flex-shrink-0" />
-              Rua da Academia, 123 - Bairro Fitness, Cidade - UF
+              Av. Dr. Mendel Steinbruch, 10285 - Pajuçara, Maracanaú - CE
             </li>
           </ul>
         </div>
@@ -76,8 +80,8 @@ export default function Footer() {
               <select
                 name="modality"
                 required
-                className="w-full p-3 rounded-md bg-secondary border border-tertiary text-white placeholder-white-50 focus:outline-none focus:ring-1 focus:ring-accent"
-              >
+                className="w-full p-3 rounded-md bg-[#333232] border border-tertiary text-white placeholder-white-50 focus:outline-none focus:ring-1 focus:ring-accent">
+
                 <option value="">Escolha a Modalidade</option>
                 <option value="Crossfit">Crossfit</option>
                 <option value="Performance">Performance</option>
@@ -96,7 +100,7 @@ export default function Footer() {
             </div>
             <button
               type="submit"
-              className="w-full bg-accent text-primary font-bold py-3 rounded-md  hover:bg-accent-dark transition-colors duration-300">
+              className="w-full   font-bold py-3  cursor-pointer  border border-accent text-accent  hover:bg-[#333232] hover:text-white transition-colors duration-300">
               Agendar Aula
             </button>
           </form>
@@ -111,17 +115,16 @@ export default function Footer() {
               aria-label="Instagram"
               className="text-white-50 hover:text-accent transition-colors duration-300"
             >
-              <Instagram className="w-7 h-7" />
+              <FontAwesomeIcon icon={faInstagram} size="2x" className="text-[#E1306C]" />
             </a>
             <a
               href="#"
               aria-label="Facebook"
-              className="text-white-50 hover:text-accent transition-colors duration-300"
-            >
-              <Facebook className="w-7 h-7" />
+              className="text-white-50 hover:text-accent transition-colors duration-300">
+              <FontAwesomeIcon icon={faFacebook} size="2x" className="text-[#3b5998]" />
             </a>
             <a href="#" aria-label="YouTube" className="text-white-50 hover:text-accent transition-colors duration-300">
-              <Youtube className="w-7 h-7" />
+              <FontAwesomeIcon icon={faYoutube} size="2x" className="text-[#FF0000]" />
             </a>
           </div>
         </div>
@@ -129,10 +132,19 @@ export default function Footer() {
         {/* Mapa e Institucional */}
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Localização</h3>
-          <div className="w-full h-32 bg-secondary rounded-lg flex items-center justify-center text-sm text-white-50">
-            {/* Placeholder para mapa incorporado */}
-            Mapa aqui (Google Maps Embed)
+          <div className="w-full h-48 md:h-64 rounded-lg overflow-hidden">
+            <iframe
+              title="Mapa - Complexo CHV"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.9463652831337!2d-38.67678022512477!3d-3.8532884431410336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c748e021d01389%3A0xf31bfa160ce3fe0!2sComplexo%20CHV!5e0!3m2!1spt-BR!2sbr!4v1715709651482!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
+
           <p className="mt-4 text-sm">&copy; {new Date().getFullYear()} Complexo CHV. Todos os direitos reservados.</p>
         </div>
       </div>

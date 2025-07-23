@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Header from "./Header"
 import chv1 from "../assets/chv1.png"
 import chvv from "../assets/chvv.png"
+import ddd from "../assets/ddd.png"
 
 export default function Hero() {
   return (
@@ -12,7 +13,6 @@ export default function Hero() {
         backgroundImage: `url(${chv1})`,
       }}
     >
-      <img src="" alt="" />
       <Header />
       <div className="absolute inset-0 bg-black opacity-70"></div>
       <div className="relative z-10 p-4 max-w-4xl mx-auto">
@@ -42,7 +42,7 @@ export default function Hero() {
         </motion.p>
         <motion.a
           href="#plans"
-          className="inline-block bg-accent text-primary border border-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-accent-dark transition-colors duration-300"
+          className="inline-block bg-accent text-primary border border-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-[#1c1c1c] transition-colors duration-300"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}

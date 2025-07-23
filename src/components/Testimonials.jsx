@@ -1,6 +1,7 @@
 
 
 import { motion } from "framer-motion"
+import contato from "../assets/contato.png"
 
 const testimonials = [
   {
@@ -36,7 +37,7 @@ export default function Testimonials() {
         >
           O Que Nossos Alunos Dizem
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -47,7 +48,7 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <img
-                src={testimonial.photo || "/placeholder.svg"}
+                src={contato}
                 alt={testimonial.name}
                 className="w-24 h-24 rounded-full mx-auto mb-6 object-cover border-2 border-accent"
               />

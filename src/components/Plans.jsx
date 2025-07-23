@@ -1,3 +1,4 @@
+"use client"
 
 import { motion } from "framer-motion"
 import { CheckCircle } from "lucide-react"
@@ -13,7 +14,7 @@ const plans = [
       "Válido apenas para novos alunos",
     ],
     isPopular: false,
-    isFree: true, // Novo campo para identificar o plano grátis
+    isFree: true,
   },
   {
     name: "Plano Essencial",
@@ -61,7 +62,7 @@ export default function Plans() {
     <section id="plans" className="py-16 md:py-24 bg-primary">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center mb-12 cursor-pointer"
+          className="text-3xl md:text-5xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -73,37 +74,40 @@ export default function Plans() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`p-8 rounded-lg shadow-xl text-center ${
-                plan.isPopular
-                  ? "bg-accent text-primary border-2 border-accent-dark"
-                  : plan.isFree
-                    ? "bg-secondary border border-accent" // Destaque sutil para o grátis
-                    : "bg-secondary border border-tertiary"
-              }`}
+              className={`p-6 rounded-lg shadow-xl text-center cursor-pointer
+                transition-all duration-300 ease-in-out
+                ${
+                  plan.isPopular
+                    ? "bg-accent text-primary border-2 border-accent-dark hover:scale-105 hover:shadow-accent/40"
+                    : plan.isFree
+                      ? "bg-secondary border border-accent hover:scale-103 hover:shadow-accent/20 hover:bg-tertiary" // Destaque sutil para o grátis
+                      : "bg-secondary border border-tertiary hover:scale-103 hover:shadow-white/10 hover:bg-tertiary"
+                }
+              `}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {plan.isPopular && (
-                <div className="mb-4">
+                <div className="mb-3">
                   <span className="bg-primary text-accent px-4 py-1 rounded-full text-sm font-bold">Mais Popular</span>
                 </div>
               )}
               {plan.isFree && (
-                <div className="mb-4">
+                <div className="mb-3">
                   <span className="bg-accent text-primary px-4 py-1 rounded-full text-sm font-bold">Experimente!</span>
                 </div>
               )}
-              <h3 className="text-3xl font-bold mb-4">{plan.name}</h3>
+              <h3 className="text-2xl font-bold mb-3">{plan.name}</h3>
               <p
-                className={`text-4xl font-extrabold mb-6 ${
+                className={`text-3xl font-extrabold mb-5 ${
                   plan.isPopular ? "text-primary" : plan.isFree ? "text-accent" : "text-white"
                 }`}
               >
                 {plan.price}
               </p>
-              <ul className="text-left mb-8 space-y-3">
+              <ul className="text-left mb-6 space-y-2">
                 {plan.benefits.map((benefit, i) => (
                   <li key={i} className={`flex items-center ${plan.isPopular ? "text-primary" : "text-white-50"}`}>
                     <CheckCircle className={`w-5 h-5 mr-3 ${plan.isPopular ? "text-primary" : "text-accent"}`} />
@@ -112,14 +116,14 @@ export default function Plans() {
                 ))}
               </ul>
               <a
-                href={plan.isFree ? "#contact" : "#"} // Link para o formulário de contato para o plano grátis
-                className={`inline-block w-full py-3 rounded-full font-bold text-lg transition-colors duration-300 ${
-                  plan.isPopular
-                    ? "bg-primary text-accent hover:bg-tertiary"
-                    : plan.isFree
-                      ? "bg-accent text-primary hover:bg-accent-dark" // Botão para o plano grátis
+                href={plan.isFree ? "#contact" : "#"}
+                className={`inline-block w-full py-3 rounded-full font-bold text-lg transition-colors duration-300
+                  ${
+                    plan.isPopular
+                      ? "bg-primary text-accent hover:bg-tertiary"
                       : "bg-accent text-primary hover:bg-accent-dark"
-                }`}
+                  }
+                `}
               >
                 {plan.isFree ? "Agendar Aula Grátis" : "Assinar Agora"}
               </a>
